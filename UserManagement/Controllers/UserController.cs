@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using UserManagement.DTOs;
+using UserManagement.ViewModels;
 using UserManagement.Models;
 
 namespace UserManagement.Controllers
@@ -16,20 +16,21 @@ namespace UserManagement.Controllers
             _userManager = userManager;
         }
         [HttpPost]
-        public async Task<IActionResult> CreateUser([FromBody] UserDTO userDto)
+        public async Task<IActionResult> CreateUser([FromBody] UserCreateVM userDto)
         {
+            //!! I will have to change to different VM, so i don't input data into fields that are not necessary or auto configured, also using Identity i will have to after creating an user, seed this user ID
+            // for Identity.UserRoles table, and combine it with default User Role. also i need to seed 2 Default roles, Admin and User
+
             if (userDto == null)
                 return BadRequest("User data is required.");
 
             var user = new User
             {
                 UserName = userDto.UserName,
-                Email = userDto.Email,
-                Role = userDto.Role,
-                IsDeleted = userDto.IsDeleted
+                Email = userDto.Email                
             };
 
-            var result = await _userManager.CreateAsync(user, "DefaultPassword123!"); // Provide a default password
+            var result = await _userManager.CreateAsync(user, userDto.Password); // Provide a default password
 
             if (result.Succeeded)
             {
@@ -47,20 +48,28 @@ namespace UserManagement.Controllers
             if (user == null)
                 return NotFound("User not found.");
 
-            var userDto = new UserDTO
+
+            if (user.IsDeleted == true)
+            {
+                return NotFound("User not found (soft delete).");
+            }
+
+            
+            var userDto = new UserReadOnlyVM
             {
                 Id = user.Id,
                 UserName = user.UserName,
                 Email = user.Email,
                 Role = user.Role,
-                IsDeleted = user.IsDeleted
+                IsDeleted = user.IsDeleted,
+                EmailConfirmed=user.EmailConfirmed
             };
 
             return Ok(userDto);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(string id, [FromBody] UserDTO userDto)
+        public async Task<IActionResult> UpdateUser(string id, [FromBody] UserReadOnlyVM userDto)
         {
             if (userDto == null)
                 return BadRequest("User data is required.");
@@ -73,7 +82,7 @@ namespace UserManagement.Controllers
             user.UserName = userDto.UserName;
             user.Email = userDto.Email;
             user.Role = userDto.Role;
-            user.IsDeleted = userDto.IsDeleted;
+           // user.IsDeleted = userDto.IsDeleted;
 
             var result = await _userManager.UpdateAsync(user);
 

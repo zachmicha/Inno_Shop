@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\viewmodels\\usercreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\viewmodels\\usercreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\viewmodels\\userreadonlyvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\viewmodels\\userreadonlyvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\data\\userdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\data\\userdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -42,24 +46,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserDTO.cs",
-              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\DTOs\\UserDTO.cs",
-              "RelativeDocumentMoniker": "UserManagement\\DTOs\\UserDTO.cs",
-              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\DTOs\\UserDTO.cs",
-              "RelativeToolTip": "UserManagement\\DTOs\\UserDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "UserCreateVM.cs",
+              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\ViewModels\\UserCreateVM.cs",
+              "RelativeDocumentMoniker": "UserManagement\\ViewModels\\UserCreateVM.cs",
+              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\ViewModels\\UserCreateVM.cs",
+              "RelativeToolTip": "UserManagement\\ViewModels\\UserCreateVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-23T03:43:30.521Z",
+              "WhenOpened": "2024-12-24T16:27:18.95Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "UserManagement\\Properties\\launchSettings.json",
@@ -67,25 +71,24 @@
               "RelativeToolTip": "UserManagement\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-21T20:26:39.357Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-21T20:26:39.357Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "UserManagement\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Controllers\\UserController.cs",
               "RelativeToolTip": "UserManagement\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-21T20:20:28.058Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "20241221201315_InitialMigration.cs",
               "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Migrations\\20241221201315_InitialMigration.cs",
               "RelativeDocumentMoniker": "UserManagement\\Migrations\\20241221201315_InitialMigration.cs",
@@ -93,12 +96,11 @@
               "RelativeToolTip": "UserManagement\\Migrations\\20241221201315_InitialMigration.cs",
               "ViewState": "AgIAAEkAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-21T20:13:16.007Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-21T20:13:16.007Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Dockerfile",
               "RelativeDocumentMoniker": "UserManagement\\Dockerfile",
@@ -106,12 +108,11 @@
               "RelativeToolTip": "UserManagement\\Dockerfile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-12-21T19:18:06.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-21T19:18:06.464Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "UserDbContext.cs",
               "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Data\\UserDbContext.cs",
               "RelativeDocumentMoniker": "UserManagement\\Data\\UserDbContext.cs",
@@ -124,13 +125,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Program.cs",
               "RelativeDocumentMoniker": "UserManagement\\Program.cs",
               "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Program.cs",
               "RelativeToolTip": "UserManagement\\Program.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAowGAAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACkAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-21T18:45:13.192Z",
               "EditorCaption": ""
@@ -138,12 +139,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "UserReadOnlyVM.cs",
+              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\ViewModels\\UserReadOnlyVM.cs",
+              "RelativeDocumentMoniker": "UserManagement\\ViewModels\\UserReadOnlyVM.cs",
+              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\ViewModels\\UserReadOnlyVM.cs",
+              "RelativeToolTip": "UserManagement\\ViewModels\\UserReadOnlyVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-23T03:43:30.521Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\appsettings.json",
               "RelativeDocumentMoniker": "UserManagement\\appsettings.json",
               "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\appsettings.json",
               "RelativeToolTip": "UserManagement\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-12-21T18:45:04.229Z",
               "EditorCaption": ""
