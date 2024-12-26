@@ -2,6 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using UserManagement.ViewModels;
 using UserManagement.Models;
+using Microsoft.AspNetCore.Identity.Data;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Swashbuckle.AspNetCore.Annotations;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UserManagement.Controllers
 {
@@ -10,10 +17,11 @@ namespace UserManagement.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserManager<User> _userManager;
-      
-        public UserController(UserManager<User> userManager)
+        private readonly IConfiguration _configuration;
+        public UserController(UserManager<User> userManager, IConfiguration configuration)
         {
             _userManager = userManager;
+            _configuration = configuration;
         }
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] UserCreateVM userDto)
@@ -40,7 +48,40 @@ namespace UserManagement.Controllers
             return BadRequest(result.Errors);
         }
 
-        [HttpGet("{id}")]
+        /// <summary>
+        /// Returns JWT token for authentication/authorization purpouses
+        /// </summary>
+        /// <param name="userDto"></param>
+        /// <returns></returns>
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(UserLoginVM userDto)
+        {
+            if (userDto == null || string.IsNullOrWhiteSpace(userDto.Email) || string.IsNullOrWhiteSpace(userDto.Password))
+            {
+                return BadRequest("Email and password are required.");
+            }
+
+
+            var user = await _userManager.FindByEmailAsync(userDto.Email);
+            if (user == null)
+            {
+                return Unauthorized("Invalid email or password.");
+            }
+            
+                var result = await _userManager.CheckPasswordAsync(user, userDto.Password);
+                if (result==false)
+                {
+                    return Unauthorized("Invalid email or password.");
+                }
+
+            var token = GenerateJwtToken(user);
+            return Ok(new { Token = token });
+        }
+
+
+        [HttpGet("/api/User/{id}")]
+        
+
         public async Task<IActionResult> GetUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -60,17 +101,23 @@ namespace UserManagement.Controllers
                 Id = user.Id,
                 UserName = user.UserName,
                 Email = user.Email,
-                Role = user.Role,
                 IsDeleted = user.IsDeleted,
                 EmailConfirmed=user.EmailConfirmed
             };
 
             return Ok(userDto);
         }
-
+        /// <summary>
+        /// You have to provide current not hashed password for the User in the API call, method will hash it, and compare it in database with saved hashed version of that password.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="userDto"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateUser(string id, [FromBody] UserReadOnlyVM userDto)
+        [SwaggerOperation(Summary = "Update email and password at once", Description = "Updates the email and password of a user by their ID.")]
+        public async Task<IActionResult> UpdateEmailAndPasswordUser(string id, [FromBody] UserUpdateEmailAndPasswordVM userDto)
         {
+            
             if (userDto == null)
                 return BadRequest("User data is required.");
 
@@ -79,20 +126,29 @@ namespace UserManagement.Controllers
             if (user == null)
                 return NotFound("User not found.");
 
-            user.UserName = userDto.UserName;
             user.Email = userDto.Email;
-            user.Role = userDto.Role;
-           // user.IsDeleted = userDto.IsDeleted;
+            
 
+            var passwordResult = await _userManager.ChangePasswordAsync(user, userDto.CurrentPassword,userDto.Password);
+
+            if (passwordResult.Succeeded == true)
+            {
             var result = await _userManager.UpdateAsync(user);
-
             if (result.Succeeded)
             {
                 return NoContent();
+                }
+                else
+                {
+                    return BadRequest(result.Errors);
+                }
             }
 
-            return BadRequest(result.Errors);
+           
+           return BadRequest("Something went wrong");         
+          
         }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {
@@ -112,5 +168,33 @@ namespace UserManagement.Controllers
 
             return BadRequest(result.Errors);
         }
+        #region JWTimplementation
+
+       
+        private string GenerateJwtToken(User user)
+        {
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:Key"]));
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
+        new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+        new Claim(JwtRegisteredClaimNames.Email, user.Email),
+        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+    };
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["JwtSettings:Issuer"],
+                audience: _configuration["JwtSettings:Audience"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddHours(1),
+                signingCredentials: credentials
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+        #endregion
+
+
     }
 }

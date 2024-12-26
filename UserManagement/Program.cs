@@ -8,6 +8,7 @@ using System.Configuration;
 using System.Text;
 using UserManagement.Controllers;
 using UserManagement.Data;
+using UserManagement.Extensions;
 using UserManagement.Models;
 
 namespace UserManagement
@@ -44,7 +45,7 @@ namespace UserManagement
                     ValidateIssuer=true,
                     ValidateAudience=true,
                     ValidateLifetime=true,
-                    ValidateIssuerSigningKey=true,
+                    ValidateIssuerSigningKey=true,                    
                 };
             });
 
@@ -73,11 +74,9 @@ namespace UserManagement
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddSwaggerGen();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "User API", Description = "CRUD for Users", Version = "v1" });
-            });
+            builder.Services.AddSwaggerGernWithAuth();
 
             var app = builder.Build();
 

@@ -23,3 +23,4 @@ C:\Users\krwaw\source\repos\Inno_Shop\Inno_Shop\obj\Debug\net8.0\refint\Inno_Sho
 C:\Users\krwaw\source\repos\Inno_Shop\Inno_Shop\obj\Debug\net8.0\Inno_Shop.pdb
 C:\Users\krwaw\source\repos\Inno_Shop\Inno_Shop\obj\Debug\net8.0\Inno_Shop.genruntimeconfig.cache
 C:\Users\krwaw\source\repos\Inno_Shop\Inno_Shop\obj\Debug\net8.0\ref\Inno_Shop.dll
+C:\Users\krwaw\source\repos\Inno_Shop\Inno_Shop\obj\Debug\net8.0\Inno_Shop.sourcelink.json

@@ -3,9 +3,11 @@ using UserManagement.Common;
 
 namespace UserManagement.Models
 {
+    /// <summary>
+    /// You can modify this class, making more properties as needed for your User properties, as needed
+    /// </summary>
     public class User : IdentityUser
     {
-        public string Role { get; set; } = StaticRoleTypes.User;
         public bool IsDeleted { get; set; } = false;
        
     }

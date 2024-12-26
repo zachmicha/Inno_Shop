@@ -166,3 +166,4 @@ C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement\obj\Debug\net8.0\refint\
 C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement\obj\Debug\net8.0\ProductManagement.pdb
 C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement\obj\Debug\net8.0\ProductManagement.genruntimeconfig.cache
 C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement\obj\Debug\net8.0\ref\ProductManagement.dll
+C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement\obj\Debug\net8.0\ProductManagement.sourcelink.json
