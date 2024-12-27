@@ -9,6 +9,7 @@ using System.Security.Claims;
 using System.Text;
 using Swashbuckle.AspNetCore.Annotations;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.JsonWebTokens;
 
 namespace UserManagement.Controllers
 {
@@ -78,10 +79,8 @@ namespace UserManagement.Controllers
             return Ok(new { Token = token });
         }
 
-
-        [HttpGet("/api/User/{id}")]
-        
-
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetUser(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
@@ -113,6 +112,8 @@ namespace UserManagement.Controllers
         /// <param name="id"></param>
         /// <param name="userDto"></param>
         /// <returns></returns>
+        /// 
+        [Authorize(AuthenticationSchemes = "Bearer")]        
         [HttpPut("{id}")]
         [SwaggerOperation(Summary = "Update email and password at once", Description = "Updates the email and password of a user by their ID.")]
         public async Task<IActionResult> UpdateEmailAndPasswordUser(string id, [FromBody] UserUpdateEmailAndPasswordVM userDto)
@@ -148,7 +149,7 @@ namespace UserManagement.Controllers
            return BadRequest("Something went wrong");         
           
         }
-
+        [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {
@@ -173,25 +174,43 @@ namespace UserManagement.Controllers
        
         private string GenerateJwtToken(User user)
         {
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:Key"]));
-            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var claims = new[]
+            string secretKey = _configuration["JwtSettings:Key"]!;
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var tokenDescriptor = new SecurityTokenDescriptor
             {
-        new Claim(JwtRegisteredClaimNames.Sub, user.Id),
-        new Claim(JwtRegisteredClaimNames.Email, user.Email),
-        new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-    };
+                Subject = new ClaimsIdentity(
+                    [
+                    new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+                    new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Email,user.Email)
+                    ]),
+                Expires = DateTime.UtcNow.AddMinutes(_configuration.GetValue<int>("JwtSettings:Time")),
+                SigningCredentials = credentials,
+                Issuer = _configuration["JwtSettings:Issuer"],
+                Audience = _configuration["JwtSettings:Audience"],
+            };
+            var handler = new JsonWebTokenHandler();
+            string token = handler.CreateToken(tokenDescriptor);
+            return token;
+            //        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSettings:Key"]));
+            //        var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            var token = new JwtSecurityToken(
-                issuer: _configuration["JwtSettings:Issuer"],
-                audience: _configuration["JwtSettings:Audience"],
-                claims: claims,
-                expires: DateTime.UtcNow.AddHours(1),
-                signingCredentials: credentials
-            );
+            //        var claims = new[]
+            //        {
+            //    new Claim(JwtRegisteredClaimNames.Sub, user.Id),
+            //    new Claim(JwtRegisteredClaimNames.Email, user.Email),
+            //    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            //};
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            //        var token = new JwtSecurityToken(
+            //            issuer: _configuration["JwtSettings:Issuer"],
+            //            audience: _configuration["JwtSettings:Audience"],
+            //            claims: claims,
+            //            expires: DateTime.UtcNow.AddHours(1),
+            //            signingCredentials: credentials
+            //        );
+
+            //        return new JwtSecurityTokenHandler().WriteToken(token);
         }
         #endregion
 
