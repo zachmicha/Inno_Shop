@@ -10,6 +10,7 @@ using System.Text;
 using Swashbuckle.AspNetCore.Annotations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.JsonWebTokens;
+using System.ComponentModel.DataAnnotations;
 
 namespace UserManagement.Controllers
 {
@@ -68,8 +69,11 @@ namespace UserManagement.Controllers
             {
                 return Unauthorized("Invalid email or password.");
             }
-            
-                var result = await _userManager.CheckPasswordAsync(user, userDto.Password);
+            if (user.IsDeleted == true)
+            {
+                return NotFound("User not found (soft delete).");
+            }
+            var result = await _userManager.CheckPasswordAsync(user, userDto.Password);
                 if (result==false)
                 {
                     return Unauthorized("Invalid email or password.");
@@ -83,6 +87,8 @@ namespace UserManagement.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetUser(string id)
         {
+            if (string.IsNullOrWhiteSpace(id))
+                return BadRequest("User ID is required.");
             var user = await _userManager.FindByIdAsync(id);
 
             if (user == null)
@@ -114,13 +120,13 @@ namespace UserManagement.Controllers
         /// <returns></returns>
         /// 
         [Authorize(AuthenticationSchemes = "Bearer")]        
-        [HttpPut("{id}")]
-        [SwaggerOperation(Summary = "Update email and password at once", Description = "Updates the email and password of a user by their ID.")]
+        [HttpPut("/updateEmailAndPassword/{id}")]
         public async Task<IActionResult> UpdateEmailAndPasswordUser(string id, [FromBody] UserUpdateEmailAndPasswordVM userDto)
         {
-            
-            if (userDto == null)
-                return BadRequest("User data is required.");
+
+            var validateDto = ValidateVmsForNulls<UserUpdateEmailAndPasswordVM>(userDto, id);
+            if (validateDto != null)
+                return validateDto;
 
             var user = await _userManager.FindByIdAsync(id);
 
@@ -149,10 +155,63 @@ namespace UserManagement.Controllers
            return BadRequest("Something went wrong");         
           
         }
+
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [HttpPut("/updateEmail/{id}")]
+        public async Task<IActionResult> UpdateEmailUser(string id, [FromBody] UserUpdateEmailVM userDto)
+        {
+
+            var validateDto = ValidateVmsForNulls<UserUpdateEmailVM>(userDto, id);
+            if (validateDto != null)
+                return validateDto;
+
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+                return NotFound("User not found.");
+
+            user.Email = userDto.Email;
+
+           await _userManager.UpdateAsync(user);
+
+            return Ok("Email updated");
+
+        }
+
+        [Authorize(AuthenticationSchemes = "Bearer")]
+        [HttpPut("/update-password/{id}")]
+        public async Task<IActionResult> UpdatePasswordUser(string id, [FromBody] UserUpdatePasswordVM userDto)
+        {
+
+            var validateDto = ValidateVmsForNulls<UserUpdatePasswordVM>(userDto, id);
+            if (validateDto != null)
+                return validateDto;
+
+            var user = await _userManager.FindByIdAsync(id);
+
+            var passwordResult = await _userManager.ChangePasswordAsync(user, userDto.CurrentPassword, userDto.Password);
+
+            if (passwordResult.Succeeded == true)
+            {
+                var result = await _userManager.UpdateAsync(user);
+                if (result.Succeeded)
+                {
+                    return Ok(new { Message = "Password updated successfully." });
+                }
+                else
+                {
+                    return BadRequest(result.Errors);
+                }
+            }
+            return BadRequest("Something went wrong");
+        }
+
         [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(string id)
         {
+            if (string.IsNullOrWhiteSpace(id))
+                return BadRequest("User ID is required.");
             var user = await _userManager.FindByIdAsync(id);
 
             if (user == null || user.IsDeleted == true)
@@ -214,6 +273,17 @@ namespace UserManagement.Controllers
         }
         #endregion
 
+        #region HelperMethods
+        private static IActionResult ValidateVmsForNulls<T>(T dto, string id)
+        {
+            if (dto == null)
+                return new BadRequestObjectResult("Input data is required.");
 
+            if (string.IsNullOrEmpty(id))
+                return new BadRequestObjectResult("User ID is required.");
+
+            return null;
+        }
+        #endregion
     }
 }

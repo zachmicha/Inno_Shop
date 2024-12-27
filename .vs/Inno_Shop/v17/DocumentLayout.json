@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D11E6DBA-B396-4DFA-81DD-DB51236FBB66}|ProductManagement\\ProductManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\productmanagement\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D11E6DBA-B396-4DFA-81DD-DB51236FBB66}|ProductManagement\\ProductManagement.csproj|solutionrelative:productmanagement\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -25,8 +29,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\appsettings.json",
+              "RelativeDocumentMoniker": "UserManagement\\appsettings.json",
+              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\appsettings.json",
+              "RelativeToolTip": "UserManagement\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-27T15:01:31.624Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -35,14 +51,14 @@
               "RelativeDocumentMoniker": "UserManagement\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Controllers\\UserController.cs",
               "RelativeToolTip": "UserManagement\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAHYAAAAAAAAAAAA0wJUAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAALoAAAAAAAAAAAAAwN0AAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-27T14:45:02.743Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "WeatherForecastController.cs",
               "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement\\Controllers\\WeatherForecastController.cs",
               "RelativeDocumentMoniker": "ProductManagement\\Controllers\\WeatherForecastController.cs",
@@ -50,25 +66,23 @@
               "RelativeToolTip": "ProductManagement\\Controllers\\WeatherForecastController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-27T14:44:43.995Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-27T14:44:43.995Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProductManagement",
+              "DocumentIndex": 4,
+              "Title": "ProductManagement.csproj",
               "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement\\ProductManagement.csproj",
               "RelativeDocumentMoniker": "ProductManagement\\ProductManagement.csproj",
               "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement\\ProductManagement.csproj",
               "RelativeToolTip": "ProductManagement\\ProductManagement.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-12-27T14:41:24.736Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-27T14:41:24.736Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\krwaw\\AppData\\Local\\SourceServer\\ab7e02d5249fec98d9408f1c0cdd899e7416fb0e50e6642acc185dc12cde5718\\UserManagement\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\SourceServer\\ab7e02d5249fec98d9408f1c0cdd899e7416fb0e50e6642acc185dc12cde5718\\UserManagement\\Controllers\\UserController.cs",
@@ -76,8 +90,7 @@
               "RelativeToolTip": "..\\..\\..\\AppData\\Local\\SourceServer\\ab7e02d5249fec98d9408f1c0cdd899e7416fb0e50e6642acc185dc12cde5718\\UserManagement\\Controllers\\UserController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T16:12:30.968Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-26T16:12:30.968Z"
             }
           ]
         }
