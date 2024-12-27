@@ -228,9 +228,49 @@ namespace UserManagement.Controllers
 
             return BadRequest(result.Errors);
         }
+
+        
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPassword(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null) return NotFound("User not found.");
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            // Send token via email (use an email service here)
+            return Ok($"Password reset email sent./n {token}");
+        }
+        
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword(UserResetPasswordVM model)
+        {
+           var validateDto= ValidateVmsForNulls<UserResetPasswordVM>(model);
+            if (validateDto != null)
+                return validateDto;
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null) return NotFound("User not found.");
+
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.NewPassword);
+            if (result.Succeeded) return Ok("Password reset successfully.");
+
+            return BadRequest(result.Errors);
+        }
+
+
+
+
+
+
+
+
+
+
+
         #region JWTimplementation
 
-       
+
         private string GenerateJwtToken(User user)
         {
             string secretKey = _configuration["JwtSettings:Key"]!;
@@ -282,6 +322,13 @@ namespace UserManagement.Controllers
             if (string.IsNullOrEmpty(id))
                 return new BadRequestObjectResult("User ID is required.");
 
+            return null;
+        }
+        private static IActionResult ValidateVmsForNulls<T>(T dto)
+        {
+            if (dto == null)
+                return new BadRequestObjectResult("Input data is required.");
+            
             return null;
         }
         #endregion
