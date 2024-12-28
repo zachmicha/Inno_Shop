@@ -11,6 +11,8 @@ using Swashbuckle.AspNetCore.Annotations;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.JsonWebTokens;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
+
 
 namespace UserManagement.Controllers
 {
@@ -19,13 +21,13 @@ namespace UserManagement.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserManager<User> _userManager;
-        private readonly IConfiguration _configuration;
+        private readonly IConfiguration _configuration;        
         public UserController(UserManager<User> userManager, IConfiguration configuration)
         {
             _userManager = userManager;
-            _configuration = configuration;
+            _configuration = configuration;  
         }
-        [HttpPost]
+        [HttpPost("/create-user")]
         public async Task<IActionResult> CreateUser([FromBody] UserCreateVM userDto)
         {
             //!! I will have to change to different VM, so i don't input data into fields that are not necessary or auto configured, also using Identity i will have to after creating an user, seed this user ID
@@ -42,14 +44,41 @@ namespace UserManagement.Controllers
 
             var result = await _userManager.CreateAsync(user, userDto.Password); // Provide a default password
 
+
             if (result.Succeeded)
             {
-                return CreatedAtAction(nameof(GetUser), new { id = user.Id }, userDto);
+                //Generate token for email validation
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                //email functionality to send the code to the user
+
+                var message = $"Please confirm your email using this token : {code}";
+
+                return CreatedAtAction(nameof(GetUser),
+                    new { id = user.Id  },
+                    new {user = userDto, message= message});
             }
 
             return BadRequest(result.Errors);
         }
-
+        [HttpPost("/email-verification")]
+        public async Task<IActionResult> EmailVerification(string? email, string? code)
+        {
+            if (email == null || code==null)
+            {
+                return BadRequest("Invalid input");
+            }
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user ==null || user.IsDeleted==true)
+            {
+                return BadRequest("User not found");
+            }
+            var isVerified = await _userManager.ConfirmEmailAsync(user,code);
+            if (isVerified.Succeeded)
+            {
+                return Ok("Email confirmed");
+            }
+            return BadRequest("Something went wrong");
+        }
         /// <summary>
         /// Returns JWT token for authentication/authorization purpouses
         /// </summary>
@@ -72,6 +101,10 @@ namespace UserManagement.Controllers
             if (user.IsDeleted == true)
             {
                 return NotFound("User not found (soft delete).");
+            }
+            if (user.EmailConfirmed==false)
+            {
+                return BadRequest("Email is not confirmerd");
             }
             var result = await _userManager.CheckPasswordAsync(user, userDto.Password);
                 if (result==false)
@@ -229,7 +262,11 @@ namespace UserManagement.Controllers
             return BadRequest(result.Errors);
         }
 
-        
+        /// <summary>
+        /// Returns token in the respons body, cause what service admin is gonna use gonna depend on him, and token is provided in the response body for the testing purpouses
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         [HttpPost("forgot-password")]
         public async Task<IActionResult> ForgotPassword(string email)
         {
@@ -239,9 +276,13 @@ namespace UserManagement.Controllers
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
             // Send token via email (use an email service here)
-            return Ok($"Password reset email sent./n {token}");
+            return Ok($"Password reset email sent. \n {token}");
         }
-        
+        /// <summary>
+        /// Requires token from ForgotPassword API endpoint.
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         [HttpPost("reset-password")]
         public async Task<IActionResult> ResetPassword(UserResetPasswordVM model)
         {
@@ -257,7 +298,6 @@ namespace UserManagement.Controllers
 
             return BadRequest(result.Errors);
         }
-
 
 
 
@@ -331,6 +371,7 @@ namespace UserManagement.Controllers
             
             return null;
         }
+
         #endregion
     }
 }

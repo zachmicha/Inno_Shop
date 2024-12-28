@@ -1,6 +1,7 @@
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -19,6 +20,9 @@ namespace UserManagement
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+             
+
 
             IConfiguration config = new ConfigurationBuilder()
          .SetBasePath(Directory.GetCurrentDirectory())
@@ -60,12 +64,19 @@ namespace UserManagement
 
 
             // Add services to the container.
-            // 
+            #region Database
+
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found");
             builder.Services.AddDbContext<UserDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-            builder.Services.AddIdentity<User, IdentityRole>()
+            builder.Services.AddIdentity<User, IdentityRole>(options =>
+            {
+                //Email confirmation
+                options.SignIn.RequireConfirmedEmail = true;
+                options.Tokens.EmailConfirmationTokenProvider=TokenOptions.DefaultEmailProvider;
+            })
+                
     .AddEntityFrameworkStores<UserDbContext>()
     .AddDefaultTokenProviders();
 
@@ -73,6 +84,7 @@ namespace UserManagement
             {
                 options.SignIn.RequireConfirmedAccount = true;
             });
+            #endregion
 
 
 
