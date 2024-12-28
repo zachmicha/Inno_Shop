@@ -1,5 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
+using ProductManagement.Data;
 
 namespace ProductManagement
 {
@@ -9,8 +10,10 @@ namespace ProductManagement
         {
             var builder = WebApplication.CreateBuilder(args);
 
-       
 
+            var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found");
+            builder.Services.AddDbContext<ProductDbContext>(options =>
+options.UseSqlServer(connectionString));
             // Add services to the container.
 
             builder.Services.AddControllers();

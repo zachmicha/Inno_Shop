@@ -49,7 +49,7 @@ namespace UserManagement.Controllers
             {
                 //Generate token for email validation
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                //email functionality to send the code to the user
+                //email functionality to send the code to the user ! not implemented yet ! This is just for basic functionality not for deployment
 
                 var message = $"Please confirm your email using this token : {code}";
 
@@ -298,14 +298,6 @@ namespace UserManagement.Controllers
 
             return BadRequest(result.Errors);
         }
-
-
-
-
-
-
-
-
 
 
         #region JWTimplementation
