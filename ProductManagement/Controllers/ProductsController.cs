@@ -33,15 +33,15 @@ namespace ProductManagement.Controllers
         //    }
 
         //    // Define the UserManagement API endpoint
-        //    var userManagementApiUrl = "https://localhost:32771/api/User/login";
+        //    var userManagementApiUrl = "https://localhost:32775/api/User/login";
 
         //    // Serialize the request body
         //    var content = new StringContent(JsonSerializer.Serialize(userDto), Encoding.UTF8, "application/json");
 
         //    // Send POST request to UserManagement API
-        //   // Throws error here when trying to post, refuses to connect to the server for whatever reason
-   
-        //        var response = await _httpClient.PostAsync(userManagementApiUrl, content);
+        //    // Throws error here when trying to post, refuses to connect to the server for whatever reason
+
+        //    var response = await _httpClient.PostAsync(userManagementApiUrl, content);
 
         //    if (response.IsSuccessStatusCode)
         //    {
@@ -97,7 +97,7 @@ namespace ProductManagement.Controllers
         public async Task<IActionResult> GetAllProducts()
         {
             var productsCollection = await _dbContext.Products.Where(p=>p.IsDeleted==false).ToListAsync();
-            if (productsCollection ==null)
+            if (!productsCollection.Any())
             {
                 return BadRequest("No products were found");
             }
@@ -107,7 +107,7 @@ namespace ProductManagement.Controllers
         [HttpGet("/get-products-by-userId")]
         public async Task<IActionResult> GetAllProductsAssignedToUserId(Guid userId)
         {
-            if (userId==null)
+            if (userId== Guid.Empty)
             {
                 return BadRequest("Provide user id");
             }
@@ -122,7 +122,7 @@ namespace ProductManagement.Controllers
         [HttpGet("/get-available-products-by-userId")]
         public async Task<IActionResult> GetAllAvilableProductsAssignedToUserId(Guid userId, bool isAvailable)
         {
-            if (userId == null || isAvailable ==null)
+            if (userId == Guid.Empty || isAvailable ==null)
             {
                 return BadRequest("Provide user id, and if product is in stock");
             }
@@ -137,7 +137,7 @@ namespace ProductManagement.Controllers
         [HttpPut("/change-availability")]
         public async Task<IActionResult> ChangeAvailabilityOfProduct(bool isAvailable, Guid productId)
         {
-            if (isAvailable==null || productId == null)
+            if (isAvailable==null || productId == Guid.Empty)
             {
                 return BadRequest("Provide correct values");
             }
@@ -158,21 +158,21 @@ namespace ProductManagement.Controllers
                 return BadRequest("Provide valid value");
             }
             var productsCollection = await _dbContext.Products.Where(p=> p.Price <price && p.IsDeleted==false).ToListAsync();
-            if (productsCollection==null)
+            if (!productsCollection.Any())
             {
                 return BadRequest("No such cheap products were found");
             }
             return Ok(productsCollection);
         }
         [HttpGet("/get-products-cheaper-than-and-Available")]
-        public async Task<IActionResult> GetCheaperProductsThan(decimal price, bool isAvailable)
+        public async Task<IActionResult> GetCheaperProductsThanIsAvilable(decimal price, bool isAvailable)
         {
             if (price == null || isAvailable==null)
             {
                 return BadRequest("Provide valid value");
             }
             var productsCollection = await _dbContext.Products.Where(p => p.Price < price && p.IsAvailable ==isAvailable && p.IsDeleted == false).ToListAsync();
-            if (productsCollection == null)
+            if (!productsCollection.Any())
             {
                 return BadRequest("No such cheap products were found");
             }
