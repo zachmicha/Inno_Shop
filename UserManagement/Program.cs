@@ -86,6 +86,8 @@ namespace UserManagement
             });
             #endregion
 
+            // test for httpclient
+            builder.Services.AddHttpClient();
 
 
             builder.Services.AddControllers();

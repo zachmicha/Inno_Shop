@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.JsonWebTokens;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using System.Net.Http;
+using System.Text.Json;
 
 
 namespace UserManagement.Controllers
@@ -21,11 +23,13 @@ namespace UserManagement.Controllers
     public class UserController : ControllerBase
     {
         private readonly UserManager<User> _userManager;
-        private readonly IConfiguration _configuration;        
-        public UserController(UserManager<User> userManager, IConfiguration configuration)
+        private readonly IConfiguration _configuration;
+        private readonly HttpClient _httpClient;
+        public UserController(UserManager<User> userManager, IConfiguration configuration, HttpClient httpClient)
         {
             _userManager = userManager;
-            _configuration = configuration;  
+            _configuration = configuration;
+            _httpClient = httpClient;
         }
         [HttpPost("/create-user")]
         public async Task<IActionResult> CreateUser([FromBody] UserCreateVM userDto)
@@ -298,6 +302,37 @@ namespace UserManagement.Controllers
 
             return BadRequest(result.Errors);
         }
+
+
+        //Testing
+        //[HttpPost("login")]
+        //public async Task<IActionResult> Login2([FromBody] UserLoginVM userDto)
+        //{
+        //    if (userDto == null || string.IsNullOrWhiteSpace(userDto.Email) || string.IsNullOrWhiteSpace(userDto.Password))
+        //    {
+        //        return BadRequest("Email and password are required.");
+        //    }
+
+        //    // Define the UserManagement API endpoint
+        //    var userManagementApiUrl = "https://localhost:32777/api/User/login"; // Replace with actual URL
+
+        //    // Serialize the request body
+        //    var content = new StringContent(JsonSerializer.Serialize(userDto), Encoding.UTF8, "application/json");
+
+        //    // Send POST request to UserManagement API
+        //    var response = await _httpClient.PostAsync(userManagementApiUrl, content);
+
+        //    if (response.IsSuccessStatusCode)
+        //    {
+        //        var responseBody = await response.Content.ReadAsStringAsync();
+        //        return Ok(JsonSerializer.Deserialize<object>(responseBody)); // Return token to the client
+        //    }
+
+        //    // Return error response if the login fails
+        //    return StatusCode((int)response.StatusCode, await response.Content.ReadAsStringAsync());
+        //}
+
+
 
 
         #region JWTimplementation
