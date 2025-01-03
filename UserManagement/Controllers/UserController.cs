@@ -34,9 +34,7 @@ namespace UserManagement.Controllers
         [HttpPost("/create-user")]
         public async Task<IActionResult> CreateUser([FromBody] UserCreateVM userDto)
         {
-            //!! I will have to change to different VM, so i don't input data into fields that are not necessary or auto configured, also using Identity i will have to after creating an user, seed this user ID
-            // for Identity.UserRoles table, and combine it with default User Role. also i need to seed 2 Default roles, Admin and User
-
+            
             if (userDto == null)
                 return BadRequest("User data is required.");
 
@@ -53,7 +51,6 @@ namespace UserManagement.Controllers
             {
                 //Generate token for email validation
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                //email functionality to send the code to the user ! not implemented yet ! This is just for basic functionality not for deployment
 
                 var message = $"Please confirm your email using this token : {code}";
 

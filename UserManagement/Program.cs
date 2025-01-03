@@ -42,17 +42,13 @@ namespace UserManagement
             }).AddJwtBearer(x =>
             {
                 x.RequireHttpsMetadata = false;
-                //x.SaveToken = false;
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
 
                     ValidIssuer = config["JwtSettings:Issuer"],
                     ValidAudience = config["JwtSettings:Audience"],
                     IssuerSigningKey= new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JwtSettings:Key"]!)),
-                    //ValidateIssuer=true,
-                    //ValidateAudience=true,
-                    //ValidateLifetime=true,
-                    //ValidateIssuerSigningKey=true,
+                    
                     ClockSkew = TimeSpan.Zero
                 };
             });

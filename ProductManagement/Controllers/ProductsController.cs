@@ -22,41 +22,9 @@ namespace ProductManagement.Controllers
                 _httpClient = httpClient;
             _dbContext = context;
         }
-        //error 500 Idea was to retrieve JWT token to use it  as a authorization on this microservice too.
-
-        //[HttpPost("login")]
-        //public async Task<IActionResult> Login([FromBody] UserLoginVM userDto)
-        //{
-        //    if (userDto == null || string.IsNullOrWhiteSpace(userDto.Email) || string.IsNullOrWhiteSpace(userDto.Password))
-        //    {
-        //        return BadRequest("Email and password are required.");
-        //    }
-
-        //    // Define the UserManagement API endpoint
-        //    var userManagementApiUrl = "https://localhost:32775/api/User/login";
-
-        //    // Serialize the request body
-        //    var content = new StringContent(JsonSerializer.Serialize(userDto), Encoding.UTF8, "application/json");
-
-        //    // Send POST request to UserManagement API
-        //    // Throws error here when trying to post, refuses to connect to the server for whatever reason
-
-        //    var response = await _httpClient.PostAsync(userManagementApiUrl, content);
-
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        var responseBody = await response.Content.ReadAsStringAsync();
-        //        return Ok(JsonSerializer.Deserialize<object>(responseBody)); // Return token to the client
-        //    }
-
-        //    // Return error response if the login fails
-        //    return StatusCode((int)response.StatusCode, await response.Content.ReadAsStringAsync());
-        //}
+     
 
         [HttpPost("/create-product")]
-        // can't add authorization cause Login post method doesn't work, and JWT token is not available cause of that, and making other JWT token just for this mock api service
-        //misses the point, since in production app you would store one token per session and refresh it if needed or whatever other required options
-        //[Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<IActionResult> CreateProduct([FromBody] ProductCreateVM productDto)
         {
             if (productDto == null)

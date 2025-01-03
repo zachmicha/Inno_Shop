@@ -3,24 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{90A758EE-6B12-4167-B47B-78DF0AF3CD09}|Inno_Shop.Tests\\Inno_Shop.Tests.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\inno_shop.tests\\controllers\\usercontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90A758EE-6B12-4167-B47B-78DF0AF3CD09}|Inno_Shop.Tests\\Inno_Shop.Tests.csproj|solutionrelative:inno_shop.tests\\controllers\\usercontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C6AF843E-D1B0-42DE-9292-9E52B65F25F3}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{90A758EE-6B12-4167-B47B-78DF0AF3CD09}|Inno_Shop.Tests\\Inno_Shop.Tests.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\inno_shop.tests\\controllers\\productscontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{90A758EE-6B12-4167-B47B-78DF0AF3CD09}|Inno_Shop.Tests\\Inno_Shop.Tests.csproj|solutionrelative:inno_shop.tests\\controllers\\productscontrollertest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,78 +13,20 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 173,
+          "DockedWidth": 193,
           "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserControllerTest.cs",
-              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\Inno_Shop.Tests\\Controllers\\UserControllerTest.cs",
-              "RelativeDocumentMoniker": "Inno_Shop.Tests\\Controllers\\UserControllerTest.cs",
-              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\Inno_Shop.Tests\\Controllers\\UserControllerTest.cs",
-              "RelativeToolTip": "Inno_Shop.Tests\\Controllers\\UserControllerTest.cs",
-              "ViewState": "AgIAAK0AAAAAAAAAAAAswM8AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T23:02:05.496Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 193,
-          "SelectedChildIndex": 1,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Program.cs",
               "RelativeDocumentMoniker": "UserManagement\\Program.cs",
               "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Program.cs",
               "RelativeToolTip": "UserManagement\\Program.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAnwDAAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T23:10:06.383Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "UserManagement\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\Controllers\\UserController.cs",
-              "RelativeToolTip": "UserManagement\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAowDEBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T23:01:40.676Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\appsettings.json",
-              "RelativeDocumentMoniker": "UserManagement\\appsettings.json",
-              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\appsettings.json",
-              "RelativeToolTip": "UserManagement\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-30T00:02:52.214Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProductsControllerTest.cs",
-              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\Inno_Shop.Tests\\Controllers\\ProductsControllerTest.cs",
-              "RelativeDocumentMoniker": "Inno_Shop.Tests\\Controllers\\ProductsControllerTest.cs",
-              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\Inno_Shop.Tests\\Controllers\\ProductsControllerTest.cs",
-              "RelativeToolTip": "Inno_Shop.Tests\\Controllers\\ProductsControllerTest.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwBcAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T17:09:34.402Z",
+              "WhenOpened": "2025-01-03T15:24:46.415Z",
               "EditorCaption": ""
             }
           ]

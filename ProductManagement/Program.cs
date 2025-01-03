@@ -17,11 +17,7 @@ namespace ProductManagement
 
             //Add httpClient service
             builder.Services.AddHttpClient();
-            // v this doesn't work buyt leaving there just for reference
-            //builder.Services.AddHttpClient<ProductsController>().ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
-            //{
-            //    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
-            //});
+         
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found");
             builder.Services.AddDbContext<ProductDbContext>(options =>
