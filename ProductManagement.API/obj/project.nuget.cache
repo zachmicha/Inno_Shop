@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "nb+RG/i+64Y=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.API\\ProductManagement.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\krwaw\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.21.0\\microsoft.visualstudio.azure.containers.tools.targets.1.21.0.nupkg.sha512"
+  ],
+  "logs": []
+}
