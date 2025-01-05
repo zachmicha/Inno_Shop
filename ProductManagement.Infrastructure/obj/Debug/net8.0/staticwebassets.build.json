@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "hO+8dh6vescIx9qfvrvStgRMzEMr5rbjOHcchFFAgVc=",
+  "Source": "ProductManagement.Infrastructure",
+  "BasePath": "_content/ProductManagement.Infrastructure",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.Domain\\ProductManagement.Domain.csproj",
+      "Version": 2,
+      "Source": "ProductManagement.Domain",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
