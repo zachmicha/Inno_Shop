@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0F68F79C-403B-4AA8-BE3F-8904529DB638}|ProductManagement.API\\ProductManagement.API.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\productmanagement.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{0F68F79C-403B-4AA8-BE3F-8904529DB638}|ProductManagement.API\\ProductManagement.API.csproj|solutionrelative:productmanagement.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{C911F418-2B5E-484C-B10C-31771C41E53C}|UserManagement.API\\UserManagement.API.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C911F418-2B5E-484C-B10C-31771C41E53C}|UserManagement.API\\UserManagement.API.csproj|solutionrelative:usermanagement.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0F68F79C-403B-4AA8-BE3F-8904529DB638}|ProductManagement.API\\ProductManagement.API.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\productmanagement.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0F68F79C-403B-4AA8-BE3F-8904529DB638}|ProductManagement.API\\ProductManagement.API.csproj|solutionrelative:productmanagement.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{73E8A200-CC84-4BA6-BA69-834170D7B6F0}|UserManagement.Application\\UserManagement.Application.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73E8A200-CC84-4BA6-BA69-834170D7B6F0}|UserManagement.Application\\UserManagement.Application.csproj|solutionrelative:usermanagement.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8988DFE-4244-4031-A4C7-F07CC7C5739C}|ProductManagement.Application\\ProductManagement.Application.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\productmanagement.application\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F8988DFE-4244-4031-A4C7-F07CC7C5739C}|ProductManagement.Application\\ProductManagement.Application.csproj|solutionrelative:productmanagement.application\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48954E8D-1C08-418C-BCB0-5B878E4C8E6A}|ProductManagement.Infrastructure\\ProductManagement.Infrastructure.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\productmanagement.infrastructure\\productmanagement.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{48954E8D-1C08-418C-BCB0-5B878E4C8E6A}|ProductManagement.Infrastructure\\ProductManagement.Infrastructure.csproj|solutionrelative:productmanagement.infrastructure\\productmanagement.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{73E8A200-CC84-4BA6-BA69-834170D7B6F0}|UserManagement.Application\\UserManagement.Application.csproj|c:\\users\\krwaw\\source\\repos\\inno_shop\\usermanagement.application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73E8A200-CC84-4BA6-BA69-834170D7B6F0}|UserManagement.Application\\UserManagement.Application.csproj|solutionrelative:usermanagement.application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,53 +26,47 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.API\\appsettings.json",
-              "RelativeDocumentMoniker": "ProductManagement.API\\appsettings.json",
-              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.API\\appsettings.json",
-              "RelativeToolTip": "ProductManagement.API\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-05T18:07:57.625Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProductManagement.Infrastructure.csproj",
-              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.Infrastructure\\ProductManagement.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "ProductManagement.Infrastructure\\ProductManagement.Infrastructure.csproj",
-              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.Infrastructure\\ProductManagement.Infrastructure.csproj",
-              "RelativeToolTip": "ProductManagement.Infrastructure\\ProductManagement.Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-05T15:57:52.284Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProductsController.cs",
-              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.API\\Controllers\\ProductsController.cs",
-              "RelativeDocumentMoniker": "ProductManagement.API\\Controllers\\ProductsController.cs",
-              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.API\\Controllers\\ProductsController.cs",
-              "RelativeToolTip": "ProductManagement.API\\Controllers\\ProductsController.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAmwHEAAAAgAAAAAAAAAA==",
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement.Application\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "UserManagement.Application\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement.Application\\Services\\UserService.cs",
+              "RelativeToolTip": "UserManagement.Application\\Services\\UserService.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAAwI4AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-05T15:58:46.565Z",
+              "WhenOpened": "2025-01-06T14:34:47.409Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ProductService.cs",
-              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.Application\\Services\\ProductService.cs",
-              "RelativeDocumentMoniker": "ProductManagement.Application\\Services\\ProductService.cs",
-              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.Application\\Services\\ProductService.cs",
-              "RelativeToolTip": "ProductManagement.Application\\Services\\ProductService.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAABBywBUAAAA/AAAAAAAAAA==",
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement.Application\\Interfaces\\IUserService.cs",
+              "RelativeDocumentMoniker": "UserManagement.Application\\Interfaces\\IUserService.cs",
+              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement.Application\\Interfaces\\IUserService.cs",
+              "RelativeToolTip": "UserManagement.Application\\Interfaces\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-05T15:51:32.423Z",
+              "WhenOpened": "2025-01-06T14:34:36.185Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 193,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement.API\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "UserManagement.API\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement.API\\Controllers\\UserController.cs",
+              "RelativeToolTip": "UserManagement.API\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAcwFIAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-06T14:35:31.023Z",
               "EditorCaption": ""
             }
           ]
