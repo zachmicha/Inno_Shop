@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductManagement.Application.Interfaces;
 using ProductManagement.Application.ViewModels;
+using System.ComponentModel.DataAnnotations;
+using System.Configuration;
 
 namespace ProductManagement.API.Controllers
 {
@@ -17,21 +20,40 @@ namespace ProductManagement.API.Controllers
      
 
         [HttpPost("/create-product")]
-        public async Task<IActionResult> CreateProduct([FromBody] ProductCreateVM productDto)
+        public async Task<IActionResult> CreateProduct([FromBody] ProductCreateVM productDto, IValidator<ProductCreateVM> validator)
         {
-            if (productDto == null)
-                return BadRequest("Invalid data model");
+           var validationResult =validator.Validate(productDto);
+            if (!validationResult.IsValid) 
+            {
+                var problemDetails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                    Title = "Validation failed",
+                    Detail = "One or more validation errors occurred"
+                };
+                return BadRequest(problemDetails);
+            }
 
             var result = await _productService.CreateProductAsync(productDto);
             if (result == null)
                 return BadRequest("Failed to create product");
             return Ok(result);
+
         }
         [HttpPut("/delete-product")]
-        public async Task<IActionResult> DeleteProduct([FromBody] ProductSoftDeleteVM productDto)
+        public async Task<IActionResult> DeleteProduct([FromBody] ProductSoftDeleteVM productDto, IValidator<ProductSoftDeleteVM> validator)
         {
-            if (productDto == null)
-                return BadRequest("Invalid data");
+            var validationResult = validator.Validate(productDto);
+            if (!validationResult.IsValid)
+            {
+                var problemDetails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                    Title = "Validation failed",
+                    Detail = "One or more validation errors occurred"
+                };
+                return BadRequest(problemDetails);
+            }
 
             var result = await _productService.DeleteProductAsync(productDto.Id);
 

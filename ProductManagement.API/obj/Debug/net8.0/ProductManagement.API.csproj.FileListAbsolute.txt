@@ -300,3 +300,5 @@ C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement.API\obj\Debug\net8.0\ref
 C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement.API\obj\Debug\net8.0\ProductManagement.API.pdb
 C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement.API\obj\Debug\net8.0\ProductManagement.API.genruntimeconfig.cache
 C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement.API\obj\Debug\net8.0\ref\ProductManagement.API.dll
+C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement.API\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement.API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

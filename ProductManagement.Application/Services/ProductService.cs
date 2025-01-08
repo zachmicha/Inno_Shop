@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FluentValidation;
+using Microsoft.EntityFrameworkCore;
 using ProductManagement.Application.Interfaces;
 using ProductManagement.Application.ViewModels;
 using ProductManagement.Domain.Entities;
@@ -8,7 +9,6 @@ namespace ProductManagement.Application.Services
     public class ProductService : IProductService
     {
         private readonly ProductDbContext _dbContext;
-
         public ProductService(ProductDbContext dbContext)
         {
             _dbContext = dbContext;

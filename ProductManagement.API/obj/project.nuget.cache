@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "LfY8v50Uf90=",
+  "dgSpecHash": "O/C6EgIwTTc=",
   "success": true,
   "projectFilePath": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.API\\ProductManagement.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\krwaw\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\krwaw\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\krwaw\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
+    "C:\\Users\\krwaw\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.11.0\\fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",
     "C:\\Users\\krwaw\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\krwaw\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\krwaw\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

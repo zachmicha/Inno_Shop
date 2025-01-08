@@ -7,6 +7,7 @@ using ProductManagement.Application.Services;
 using ProductManagement.Infrastructure.Databases;
 using ProductManagement.API.Extensions;
 using ProductManagement.Application.Interfaces;
+using FluentValidation;
 
 namespace ProductManagement.Api
 {
@@ -20,6 +21,8 @@ namespace ProductManagement.Api
             builder.Services.AddHttpClient();
 
             builder.Services.AddScoped<IProductService, ProductService>();
+            //Register fluentValidation
+            builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly, includeInternalTypes: true);
 
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found");
             builder.Services.AddDbContext<ProductDbContext>(options =>

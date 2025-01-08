@@ -47,3 +47,5 @@ C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement.Application\obj\Debug\ne
 C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement.Application\obj\Debug\net8.0\ProductManagement.Application.pdb
 C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement.Application\obj\Debug\net8.0\ProductManagement.Application.genruntimeconfig.cache
 C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement.Application\obj\Debug\net8.0\ref\ProductManagement.Application.dll
+C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement.Application\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\krwaw\source\repos\Inno_Shop\ProductManagement.Application\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll

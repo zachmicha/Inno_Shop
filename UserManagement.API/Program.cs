@@ -1,4 +1,5 @@
 
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -31,7 +32,8 @@ namespace UserManagement.API
          .Build();
 
             builder.Services.AddScoped<IUserService, UserService>();
-
+            //Register fluentValidation
+            builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly, includeInternalTypes: true);
 
             #region JWT
             builder.Services.AddAuthentication(x =>

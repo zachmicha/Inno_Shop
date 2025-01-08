@@ -305,3 +305,6 @@ C:\Users\krwaw\source\repos\Inno_Shop\UserManagement.API\obj\Debug\net8.0\refint
 C:\Users\krwaw\source\repos\Inno_Shop\UserManagement.API\obj\Debug\net8.0\UserManagement.API.pdb
 C:\Users\krwaw\source\repos\Inno_Shop\UserManagement.API\obj\Debug\net8.0\UserManagement.API.genruntimeconfig.cache
 C:\Users\krwaw\source\repos\Inno_Shop\UserManagement.API\obj\Debug\net8.0\ref\UserManagement.API.dll
+C:\Users\krwaw\source\repos\Inno_Shop\UserManagement.API\bin\Debug\net8.0\FluentValidation.dll
+C:\Users\krwaw\source\repos\Inno_Shop\UserManagement.API\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\krwaw\source\repos\Inno_Shop\UserManagement.API\obj\Debug\net8.0\UserManagement.API.MvcApplicationPartsAssemblyInfo.cs

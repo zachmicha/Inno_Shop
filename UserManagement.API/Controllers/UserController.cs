@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.JsonWebTokens;
 using UserManagement.Domain.Entities;
 using UserManagement.Application.ViewModels;
 using UserManagement.Application.Interfaces;
+using FluentValidation;
 
 
 namespace UserManagement.API.Controllers
@@ -22,9 +23,19 @@ namespace UserManagement.API.Controllers
             _userService = userService;
         }
         [HttpPost("/create-user")]
-        public async Task<IActionResult> CreateUser([FromBody] UserCreateVM userDto)
+        public async Task<IActionResult> CreateUser([FromBody] UserCreateVM userDto, IValidator<UserCreateVM> validator)
         {
-
+            var validationResult = validator.Validate(userDto);
+            if (!validationResult.IsValid) 
+            {
+                var problemDetails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                    Title = "Validation failed",
+                    Detail = "One or more validation errors occurred"
+                };
+                return BadRequest(problemDetails);
+            }
             var (isSuccess, message) = await _userService.CreateUserAsync(userDto);
             return isSuccess ? Ok(new { Message = message }) : BadRequest(message);
         }
@@ -40,8 +51,19 @@ namespace UserManagement.API.Controllers
         /// <param name="userDto"></param>
         /// <returns></returns>
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserLoginVM userDto)
+        public async Task<IActionResult> Login(UserLoginVM userDto, IValidator<UserLoginVM> validator)
         {
+            var validationResult = validator.Validate(userDto);
+            if (!validationResult.IsValid)
+            {
+                var problemDetails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                    Title = "Validation failed",
+                    Detail = "One or more validation errors occurred"
+                };
+                return BadRequest(problemDetails);
+            }
             var (isSuccess, token, message) = await _userService.LoginAsync(userDto);
             return isSuccess ? Ok(new { Token = token }) : Unauthorized(message);
         }
@@ -62,9 +84,20 @@ namespace UserManagement.API.Controllers
         /// 
         [Authorize(AuthenticationSchemes = "Bearer")]        
         [HttpPut("/updateEmailAndPassword/{id}")]
-        public async Task<IActionResult> UpdateEmailAndPasswordUser(string id, [FromBody] UserUpdateEmailAndPasswordVM userDto)
+        public async Task<IActionResult> UpdateEmailAndPasswordUser(string id, [FromBody] UserUpdateEmailAndPasswordVM userDto, IValidator<UserUpdateEmailAndPasswordVM> validator)
         {
-           var response = await _userService.UpdateEmailAndPasswordAsync(id, userDto);
+            var validationResult = validator.Validate(userDto);
+            if (!validationResult.IsValid)
+            {
+                var problemDetails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                    Title = "Validation failed",
+                    Detail = "One or more validation errors occurred"
+                };
+                return BadRequest(problemDetails);
+            }
+            var response = await _userService.UpdateEmailAndPasswordAsync(id, userDto);
             return response
                 .IsSuccess ?
                 Ok(new { Message = response.Message })
@@ -73,8 +106,19 @@ namespace UserManagement.API.Controllers
 
         [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPut("/updateEmail/{id}")]
-        public async Task<IActionResult> UpdateEmailUser(string id, [FromBody] UserUpdateEmailVM userDto)
+        public async Task<IActionResult> UpdateEmailUser(string id, [FromBody] UserUpdateEmailVM userDto, IValidator<UserUpdateEmailVM> validator)
         {
+            var validationResult = validator.Validate(userDto);
+            if (!validationResult.IsValid)
+            {
+                var problemDetails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                    Title = "Validation failed",
+                    Detail = "One or more validation errors occurred"
+                };
+                return BadRequest(problemDetails);
+            }
             var response = await _userService.UpdateEmailAsync(id, userDto);
             return response.IsSuccess ?
                 Ok(new {Message = response.Message})
@@ -84,8 +128,19 @@ namespace UserManagement.API.Controllers
 
         [Authorize(AuthenticationSchemes = "Bearer")]
         [HttpPut("/update-password/{id}")]
-        public async Task<IActionResult> UpdatePasswordUser(string id, [FromBody] UserUpdatePasswordVM userDto)
+        public async Task<IActionResult> UpdatePasswordUser(string id, [FromBody] UserUpdatePasswordVM userDto, IValidator<UserUpdatePasswordVM> validator)
         {
+            var validationResult = validator.Validate(userDto);
+            if (!validationResult.IsValid)
+            {
+                var problemDetails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                    Title = "Validation failed",
+                    Detail = "One or more validation errors occurred"
+                };
+                return BadRequest(problemDetails);
+            }
             var response = await _userService.UpdatePasswordAsync(id,userDto);
             return response.IsSuccess ?
                 Ok(new { Message = response.Message })
@@ -123,8 +178,19 @@ namespace UserManagement.API.Controllers
         /// <param name="model"></param>
         /// <returns></returns>
         [HttpPost("reset-password")]
-        public async Task<IActionResult> ResetPassword(UserResetPasswordVM model)
+        public async Task<IActionResult> ResetPassword(UserResetPasswordVM model, IValidator<UserResetPasswordVM> validator)
         {
+            var validationResult = validator.Validate(model);
+            if (!validationResult.IsValid)
+            {
+                var problemDetails = new HttpValidationProblemDetails(validationResult.ToDictionary())
+                {
+                    Status = StatusCodes.Status400BadRequest,
+                    Title = "Validation failed",
+                    Detail = "One or more validation errors occurred"
+                };
+                return BadRequest(problemDetails);
+            }
             var response = await _userService.ResetPasswordAsync(model);
             return response.IsSuccess ?
               Ok(new { Message = response.Message })
