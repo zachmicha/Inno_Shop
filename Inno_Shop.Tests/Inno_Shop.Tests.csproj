@@ -21,7 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ProductManagement.API\ProductManagement.API.csproj" />
     <ProjectReference Include="..\ProductManagement\ProductManagement.csproj" />
+    <ProjectReference Include="..\UserManagement.API\UserManagement.API.csproj" />
     <ProjectReference Include="..\UserManagement\UserManagement.csproj" />
   </ItemGroup>
 

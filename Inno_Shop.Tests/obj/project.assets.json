@@ -4619,6 +4619,81 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "ProductManagement.API/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
+          "Microsoft.AspNetCore.OpenApi": "8.0.11",
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7",
+          "ProductManagement.Application": "1.0.0",
+          "Swashbuckle.AspNetCore": "6.9.0",
+          "System.IdentityModel.Tokens.Jwt": "8.3.0"
+        },
+        "compile": {
+          "bin/placeholder/ProductManagement.API.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProductManagement.API.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "ProductManagement.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+          "ProductManagement.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ProductManagement.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProductManagement.Application.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "ProductManagement.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0"
+        },
+        "compile": {
+          "bin/placeholder/ProductManagement.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProductManagement.Domain.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "ProductManagement.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+          "ProductManagement.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ProductManagement.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ProductManagement.Infrastructure.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "UserManagement/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -4639,6 +4714,109 @@
         },
         "runtime": {
           "bin/placeholder/UserManagement.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "UserManagement.API/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "8.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7",
+          "Swashbuckle.AspNetCore": "6.6.2",
+          "Swashbuckle.AspNetCore.Annotations": "6.6.2",
+          "System.IdentityModel.Tokens.Jwt": "8.3.0",
+          "UserManagement.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/UserManagement.API.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UserManagement.API.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "UserManagement.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "8.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7",
+          "Swashbuckle.AspNetCore": "6.6.2",
+          "Swashbuckle.AspNetCore.Annotations": "6.6.2",
+          "System.IdentityModel.Tokens.Jwt": "8.3.0",
+          "UserManagement.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/UserManagement.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UserManagement.Application.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "UserManagement.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "8.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7",
+          "Swashbuckle.AspNetCore": "6.6.2",
+          "Swashbuckle.AspNetCore.Annotations": "6.6.2",
+          "System.IdentityModel.Tokens.Jwt": "8.3.0"
+        },
+        "compile": {
+          "bin/placeholder/UserManagement.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UserManagement.Domain.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "UserManagement.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "8.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7",
+          "Swashbuckle.AspNetCore": "6.6.2",
+          "Swashbuckle.AspNetCore.Annotations": "6.6.2",
+          "System.IdentityModel.Tokens.Jwt": "8.3.0",
+          "UserManagement.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/UserManagement.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/UserManagement.Infrastructure.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -13706,10 +13884,50 @@
       "path": "../ProductManagement/ProductManagement.csproj",
       "msbuildProject": "../ProductManagement/ProductManagement.csproj"
     },
+    "ProductManagement.API/1.0.0": {
+      "type": "project",
+      "path": "../ProductManagement.API/ProductManagement.API.csproj",
+      "msbuildProject": "../ProductManagement.API/ProductManagement.API.csproj"
+    },
+    "ProductManagement.Application/1.0.0": {
+      "type": "project",
+      "path": "../ProductManagement.Application/ProductManagement.Application.csproj",
+      "msbuildProject": "../ProductManagement.Application/ProductManagement.Application.csproj"
+    },
+    "ProductManagement.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ProductManagement.Domain/ProductManagement.Domain.csproj",
+      "msbuildProject": "../ProductManagement.Domain/ProductManagement.Domain.csproj"
+    },
+    "ProductManagement.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../ProductManagement.Infrastructure/ProductManagement.Infrastructure.csproj",
+      "msbuildProject": "../ProductManagement.Infrastructure/ProductManagement.Infrastructure.csproj"
+    },
     "UserManagement/1.0.0": {
       "type": "project",
       "path": "../UserManagement/UserManagement.csproj",
       "msbuildProject": "../UserManagement/UserManagement.csproj"
+    },
+    "UserManagement.API/1.0.0": {
+      "type": "project",
+      "path": "../UserManagement.API/UserManagement.API.csproj",
+      "msbuildProject": "../UserManagement.API/UserManagement.API.csproj"
+    },
+    "UserManagement.Application/1.0.0": {
+      "type": "project",
+      "path": "../UserManagement.Application/UserManagement.Application.csproj",
+      "msbuildProject": "../UserManagement.Application/UserManagement.Application.csproj"
+    },
+    "UserManagement.Domain/1.0.0": {
+      "type": "project",
+      "path": "../UserManagement.Domain/UserManagement.Domain.csproj",
+      "msbuildProject": "../UserManagement.Domain/UserManagement.Domain.csproj"
+    },
+    "UserManagement.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../UserManagement.Infrastructure/UserManagement.Infrastructure.csproj",
+      "msbuildProject": "../UserManagement.Infrastructure/UserManagement.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -13719,7 +13937,9 @@
       "Microsoft.EntityFrameworkCore.InMemory >= 9.0.0",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "ProductManagement >= 1.0.0",
+      "ProductManagement.API >= 1.0.0",
       "UserManagement >= 1.0.0",
+      "UserManagement.API >= 1.0.0",
       "coverlet.collector >= 6.0.0",
       "xunit >= 2.5.3",
       "xunit.extensibility.core >= 2.9.2",
@@ -13759,8 +13979,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
+            "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.API\\ProductManagement.API.csproj": {
+              "projectPath": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement.API\\ProductManagement.API.csproj"
+            },
             "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement\\ProductManagement.csproj": {
               "projectPath": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\ProductManagement\\ProductManagement.csproj"
+            },
+            "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement.API\\UserManagement.API.csproj": {
+              "projectPath": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement.API\\UserManagement.API.csproj"
             },
             "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\UserManagement.csproj": {
               "projectPath": "C:\\Users\\krwaw\\source\\repos\\Inno_Shop\\UserManagement\\UserManagement.csproj"

@@ -5,29 +5,25 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using ProductManagement.Data;
-using ProductManagement.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UserManagement.Controllers;
-using UserManagement.Data;
-using UserManagement.Models;
-using UserManagement.ViewModels;
+using UserManagement.API.Controllers;
+using UserManagement.Application.Interfaces;
+using UserManagement.Application.Services;
+using UserManagement.Application.ViewModels;
+using UserManagement.Domain.Entities;
+using UserManagement.Infrastructure.Databases;
 
 namespace Inno_Shop.Tests.Controllers
 {
     public class UserControllerTest
     {
-        
+
         private readonly IConfiguration _configuration;
-        private readonly HttpClient _httpClient;
+        // private readonly HttpClient _httpClient;
+        private readonly IUserService _userService;
         public UserControllerTest()
         {
-            _httpClient = A.Fake<HttpClient>();
-
+           // _httpClient = A.Fake<HttpClient>();
+           _userService = A.Fake<IUserService>();
             var inMemorySettings = new Dictionary<string, string>
 {
     { "JwtSettings:Issuer", "https://myapi.example.com" },
@@ -56,11 +52,11 @@ namespace Inno_Shop.Tests.Controllers
                     databaseContext.Users.Add(new User
                     {
                         Id = $"23ba54c2-e930-4189-9775-1b52b3a0ae7{i}",
-                        IsDeleted=false,
-                        UserName=$"NewUser{i}",
-                        Email=$"newEmail{i}@.com",
-                        EmailConfirmed=true,
-                        PasswordHash= new PasswordHasher<User>().HashPassword(null, "P@ssword123!")                       
+                        IsDeleted = false,
+                        UserName = $"NewUser{i}",
+                        Email = $"newEmail{i}@.com",
+                        EmailConfirmed = true,
+                        PasswordHash = new PasswordHasher<User>().HashPassword(null, "P@ssword123!")
                     });
                 }
                 await databaseContext.SaveChangesAsync();
@@ -80,78 +76,66 @@ namespace Inno_Shop.Tests.Controllers
 
             return userManager;
         }
-
-        //for whatever reason it fails on the retrieval of user from db, and it's null even tho
-        //seeded data seems to be correct
-        //[Fact]
-        //public async Task UserController_Login_ReturnsOk()
-        //{
-        //    //Arrange
-        //    var userManager = await GetUserManagerAsync();
-        //    var userRepository = new UserController(userManager, _configuration, _httpClient);
-        //    UserLoginVM loginVM = new UserLoginVM
-        //    {
-        //        Email = "newEmail1@.com",
-        //        Password = "P@ssword123!"
-        //    };
-        //    //Act
-        //    var result = await userRepository.Login(loginVM);
-        //    //Assert
-
-        //    result.Should().NotBeNull();
-        //    result.Should().BeOfType(typeof(OkObjectResult));
-        //}
         [Fact]
         public async void UserController_GetUser_ReturnsOk()
         {
-            
-            var userManager = await GetUserManagerAsync();
-            var userRepository = new UserController(userManager, _configuration, _httpClient);
-            string id = "23ba54c2-e930-4189-9775-1b52b3a0ae70";
-
-            var result = await userRepository.GetUser(id);
+            //Arrange
+            var userManager = await GetUserManagerAsync(); // Creates UserManager with in-memory DB
+            var userService = new UserService(userManager, _configuration); // Real instance of UserService
+            var userController = new UserController(userService); // Pass real UserService to controller
+            string userId = "23ba54c2-e930-4189-9775-1b52b3a0ae70";
+            //Act
+            var result = await userController.GetUser(userId);
+           //Assert
 
             result.Should().NotBeNull();
-            result.Should().BeOfType(typeof(OkObjectResult));
+            result.Should().BeOfType<OkObjectResult>();
 
+            var okResult = result as OkObjectResult;
+            var user = okResult?.Value as UserReadOnlyVM;
+            user.Should().NotBeNull();
+            user?.Id.Should().Be(userId);
         }
 
         [Fact]
         public async void UserController_UpdateEmailUser_ReturnsOk()
         {
             //Arrange
-            var userManager = await GetUserManagerAsync();
-            var userRepository = new UserController(userManager, _configuration, _httpClient);
-            string id = "23ba54c2-e930-4189-9775-1b52b3a0ae70";
+            var userManager = await GetUserManagerAsync(); // Creates UserManager with in-memory DB
+            var userService = new UserService(userManager, _configuration); // Real instance of UserService
+            var userController = new UserController(userService); // Pass real UserService to controller
+            string userId = "23ba54c2-e930-4189-9775-1b52b3a0ae70";
             UserUpdateEmailVM userDto = new UserUpdateEmailVM
             {
-                Email= "damn@gmail.com"
+                Email = "damn@gmail.com"
             };
             //Act
-            var result = await userRepository.UpdateEmailUser(id, userDto);
+            var result = await userController.UpdateEmailUser(userId, userDto);
             //Assert
             result.Should().NotBeNull();
             result.Should().BeOfType(typeof(OkObjectResult));
 
+
         }
         [Fact]
-        public async void UserController_UpdateEmailAndPasswordUser_ReturnsNoContent()
+        public async void UserController_UpdateEmailAndPasswordUser_ReturnsOk()
         {
             //Arrange
-            var userManager = await GetUserManagerAsync();
-            var userRepository = new UserController(userManager, _configuration, _httpClient);
-            string id = "23ba54c2-e930-4189-9775-1b52b3a0ae70";
+            var userManager = await GetUserManagerAsync(); // Creates UserManager with in-memory DB
+            var userService = new UserService(userManager, _configuration); // Real instance of UserService
+            var userController = new UserController(userService); // Pass real UserService to controller
+            string userId = "23ba54c2-e930-4189-9775-1b52b3a0ae70";
             UserUpdateEmailAndPasswordVM userDto = new UserUpdateEmailAndPasswordVM
             {
                 Email = "damn@gmail.com",
-                CurrentPassword="P@ssword123!",
-                Password="P@ssword321!"
+                CurrentPassword = "P@ssword123!",
+                Password = "P@ssword321!"
             };
             //Act
-            var result = await userRepository.UpdateEmailAndPasswordUser(id, userDto);
+            var result = await userController.UpdateEmailAndPasswordUser(userId, userDto);
             //Assert
             result.Should().NotBeNull();
-            result.Should().BeOfType(typeof(NoContentResult));
+            result.Should().BeOfType(typeof(OkObjectResult));
 
         }
 
@@ -159,51 +143,38 @@ namespace Inno_Shop.Tests.Controllers
         public async void UserController_UpdatePasswordUser_ReturnsOk()
         {
             //Arrange
-            var userManager = await GetUserManagerAsync();
-            var userRepository = new UserController(userManager, _configuration, _httpClient);
-            string id = "23ba54c2-e930-4189-9775-1b52b3a0ae70";
+            var userManager = await GetUserManagerAsync(); // Creates UserManager with in-memory DB
+            var userService = new UserService(userManager, _configuration); // Real instance of UserService
+            var userController = new UserController(userService); // Pass real UserService to controller
+            string userId = "23ba54c2-e930-4189-9775-1b52b3a0ae70";
             UserUpdatePasswordVM userDto = new UserUpdatePasswordVM
             {
-                CurrentPassword="P@ssword123!",
+                CurrentPassword = "P@ssword123!",
                 Password = "damn@gmail.com1132"
             };
             //Act
-            var result = await userRepository.UpdatePasswordUser(id, userDto);
+            var result = await userController.UpdatePasswordUser(userId, userDto);
             //Assert
             result.Should().NotBeNull();
             result.Should().BeOfType(typeof(OkObjectResult));
 
         }
         [Fact]
-        public async void UserController_DeleteUser_ReturnsNoContent()
+        public async void UserController_DeleteUser_ReturnsOk()
         {
             //Arrange
-            var userManager = await GetUserManagerAsync();
-            var userRepository = new UserController(userManager, _configuration, _httpClient);
-            string id = "23ba54c2-e930-4189-9775-1b52b3a0ae70";
-           
+            var userManager = await GetUserManagerAsync(); // Creates UserManager with in-memory DB
+            var userService = new UserService(userManager, _configuration); // Real instance of UserService
+            var userController = new UserController(userService); // Pass real UserService to controller
+            string userId = "23ba54c2-e930-4189-9775-1b52b3a0ae70";
+
             //Act
-            var result = await userRepository.DeleteUser(id);
+            var result = await userController.DeleteUser(userId);
             //Assert
             result.Should().NotBeNull();
-            result.Should().BeOfType(typeof(NoContentResult));
+            result.Should().BeOfType(typeof(OkObjectResult));
 
         }
-        //same problem, i checked the values for seeded data and email is in fact correct
-        //i would guess that  var user = await _userManager.FindByEmailAsync(email); is having
-        //some funky way of finding user by email that throws error for unit tests
-        //[Fact]
-        //public async void UserController_ForgotPassword_ReturnsOk()
-        //{
-        //    var userManager = await GetUserManagerAsync();
-        //    var userRepository = new UserController(userManager, _configuration, _httpClient);
-        //    string email = "newEmail0@.com";
-
-        //    var result = await userRepository.ForgotPassword(email);
-
-        //    result.Should().NotBeNull();
-        //    result.Should().BeOfType(typeof(OkObjectResult));
-        //}
 
     }
 }

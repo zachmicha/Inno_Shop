@@ -13,7 +13,9 @@
           "Microsoft.EntityFrameworkCore.InMemory": "9.0.0",
           "Microsoft.NET.Test.Sdk": "17.8.0",
           "ProductManagement": "1.0.0",
+          "ProductManagement.API": "1.0.0",
           "UserManagement": "1.0.0",
+          "UserManagement.API": "1.0.0",
           "coverlet.collector": "6.0.0",
           "xunit": "2.5.3",
           "xunit.extensibility.core": "2.9.2",
@@ -3068,7 +3070,7 @@
         }
       },
       "xunit.runner.visualstudio/2.5.3": {},
-      "ProductManagement/1.0.0": {
+      "ProductManagement.API/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
           "Microsoft.AspNetCore.OpenApi": "8.0.11",
@@ -3076,17 +3078,96 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7",
+          "ProductManagement.Application": "1.0.0",
           "Swashbuckle.AspNetCore": "6.9.0",
           "System.IdentityModel.Tokens.Jwt": "8.3.0"
         },
         "runtime": {
-          "ProductManagement.dll": {
+          "ProductManagement.API.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
       },
-      "UserManagement/1.0.0": {
+      "ProductManagement.Application/1.0.0": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+          "ProductManagement.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "ProductManagement.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "ProductManagement.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0"
+        },
+        "runtime": {
+          "ProductManagement.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "ProductManagement.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+          "ProductManagement.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ProductManagement.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "UserManagement.API/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "8.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7",
+          "Swashbuckle.AspNetCore": "6.9.0",
+          "Swashbuckle.AspNetCore.Annotations": "6.6.2",
+          "System.IdentityModel.Tokens.Jwt": "8.3.0",
+          "UserManagement.Application": "1.0.0"
+        },
+        "runtime": {
+          "UserManagement.API.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "UserManagement.Application/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "8.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7",
+          "Swashbuckle.AspNetCore": "6.9.0",
+          "Swashbuckle.AspNetCore.Annotations": "6.6.2",
+          "System.IdentityModel.Tokens.Jwt": "8.3.0",
+          "UserManagement.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "UserManagement.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "UserManagement.Domain/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
@@ -3100,7 +3181,28 @@
           "System.IdentityModel.Tokens.Jwt": "8.3.0"
         },
         "runtime": {
-          "UserManagement.dll": {
+          "UserManagement.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "UserManagement.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.0",
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.0",
+          "Microsoft.AspNetCore.Identity.UI": "8.0.0",
+          "Microsoft.EntityFrameworkCore": "9.0.0",
+          "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.21.0",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "8.0.7",
+          "Swashbuckle.AspNetCore": "6.9.0",
+          "Swashbuckle.AspNetCore.Annotations": "6.6.2",
+          "System.IdentityModel.Tokens.Jwt": "8.3.0",
+          "UserManagement.Domain": "1.0.0"
+        },
+        "runtime": {
+          "UserManagement.Infrastructure.dll": {
             "assemblyVersion": "1.0.0",
             "fileVersion": "1.0.0.0"
           }
@@ -4906,12 +5008,42 @@
       "path": "xunit.runner.visualstudio/2.5.3",
       "hashPath": "xunit.runner.visualstudio.2.5.3.nupkg.sha512"
     },
-    "ProductManagement/1.0.0": {
+    "ProductManagement.API/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "UserManagement/1.0.0": {
+    "ProductManagement.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ProductManagement.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ProductManagement.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UserManagement.API/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UserManagement.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UserManagement.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "UserManagement.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
