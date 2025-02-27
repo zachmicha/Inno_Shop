@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductManagement.Application.Interfaces;
@@ -20,6 +21,8 @@ namespace ProductManagement.API.Controllers
      
 
         [HttpPost("/create-product")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+
         public async Task<IActionResult> CreateProduct([FromBody] ProductCreateVM productDto, IValidator<ProductCreateVM> validator)
         {
            var validationResult =validator.Validate(productDto);
@@ -41,6 +44,8 @@ namespace ProductManagement.API.Controllers
 
         }
         [HttpPut("/delete-product")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+
         public async Task<IActionResult> DeleteProduct([FromBody] ProductSoftDeleteVM productDto, IValidator<ProductSoftDeleteVM> validator)
         {
             var validationResult = validator.Validate(productDto);
@@ -64,6 +69,8 @@ namespace ProductManagement.API.Controllers
         }
 
         [HttpGet("get-all-products")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+
         public async Task<IActionResult> GetAllProducts()
         {
             var products = await _productService.GetAllProductsAsync();
@@ -75,6 +82,8 @@ namespace ProductManagement.API.Controllers
         }
 
         [HttpGet("/get-products-by-userId")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+
         public async Task<IActionResult> GetAllProductsAssignedToUserId(Guid userId)
         {
             if (userId == Guid.Empty)
@@ -89,6 +98,8 @@ namespace ProductManagement.API.Controllers
 
         }
         [HttpGet("/get-available-products-by-userId")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+
         public async Task<IActionResult> GetAllAvilableProductsAssignedToUserId(Guid userId, bool isAvailable)
         {
             if(userId == Guid.Empty)
@@ -103,6 +114,8 @@ namespace ProductManagement.API.Controllers
 
         }
         [HttpPut("/change-availability")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+
         public async Task<IActionResult> ChangeAvailabilityOfProduct(bool isAvailable, Guid productId)
         {
             if (productId == Guid.Empty)
@@ -116,6 +129,8 @@ namespace ProductManagement.API.Controllers
             return Ok("Product availability updated successfully");
         }
         [HttpGet("/get-products-cheaper-than")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+
         public async Task<IActionResult> GetCheaperProductsThan(decimal price)
         {
             var products = await _productService.GetProductsCheaperThanAsync(price);
@@ -126,6 +141,8 @@ namespace ProductManagement.API.Controllers
             return Ok(products);
         }
         [HttpGet("/get-products-cheaper-than-and-Available")]
+        [Authorize(AuthenticationSchemes = "Bearer")]
+
         public async Task<IActionResult> GetCheaperProductsThanIsAvilable(decimal price, bool isAvailable)
         {
             var products = await _productService.GetProductsCheaperThanAndAvailableAsync(price, isAvailable);
